@@ -1,0 +1,47 @@
+<ng-content>
+  <div class="container">
+    <div class="po-wrapper po-md-6">
+      <po-container p-title="Sua casa na palma da sua mão!">
+        <div class="po-row">
+          <po-switch
+            class="po-md-6"
+            name="lampada"
+            [p-disabled]="!lampadaManual || isUpdating"
+            [(ngModel)]="lampada"
+            p-label="Lampada"
+            p-label-off="Desligada"
+            p-label-on="Ligada"
+            (p-change)="handleLampada()"
+          ></po-switch>
+          <po-switch
+            class="po-md-6"
+            name="lampadaManual"
+            [p-disabled]="isUpdating"
+            [(ngModel)]="lampadaManual"
+            p-label="Lampada manual?"
+            p-label-off="Não"
+            p-label-on="Sim"
+            (p-change)="handleLampadaManual()"
+          ></po-switch>
+        </div>
+        <span p-icon="ph ph-user"></span>
+        <p *ngIf="!lampadaManual" class="warning po-pl-1">
+          Quando a lampada está no modo manual, será controlada com base na
+          luminosidade do ambiente!
+        </p>
+        <div class="po-row">
+          <po-switch
+            class="po-md-6"
+            name="persiana"
+            [p-disabled]="isUpdating"
+            [(ngModel)]="persiana"
+            p-label="Persiana"
+            p-label-off="Fechada"
+            p-label-on="Aberta"
+            (p-change)="handlePersiana()"
+          ></po-switch>
+        </div>
+      </po-container>
+    </div>
+  </div>
+</ng-content>
